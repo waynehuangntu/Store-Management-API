@@ -91,5 +91,7 @@ def create_app(db_url=None):
     api.register_blueprint(StoreBlueprint)
     api.register_blueprint(TagBlueprint)
     api.register_blueprint(UserBlueprint)
+    with app.app_context():
+        db.create_all()
 
     return app
